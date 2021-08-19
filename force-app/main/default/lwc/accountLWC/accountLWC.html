@@ -1,0 +1,27 @@
+<template>
+
+    <lightning-card title="Account Information" icon-name="standard:account">
+
+        <div class="slds-m-around_medium">
+
+            <lightning-input type="text" label="Enter Account Name" onchange={handleKeyChange}>
+            </lightning-input>
+
+            <p class="slds-m-bottom_small">
+                <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+            </p>
+
+            <template if:true={accountInfoObj}>
+                <c-data-table title="My Accounts" id="accountId" records={accountInfoObj} columns={columns}>
+                </c-data-table>
+            </template>
+
+            <template if:true={error}>
+                {errorMsg}
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
